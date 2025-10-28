@@ -1,11 +1,9 @@
-import honoApp from '..'
+import honoApp from '..';
 
-export default defineEventHandler(async (event) => {
-  // Convert Nuxt event to Hono request
-  const response = await honoApp.fetch(
-    event.node.req as unknown as Request,
-    event.node.res
-  )
-  
-  return response
-})
+export default defineEventHandler((event) => {
+  const originalRequest = toWebRequest(event);
+  const url = new URL(originalRequest.url);
+  url.pathname = url.pathname.replace(/^\/api/, '');
+  const modifiedRequest = new Request(url, originalRequest);
+  return honoApp.fetch(modifiedRequest);
+});

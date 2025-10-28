@@ -1,6 +1,8 @@
+import type { Nitro } from 'nitropack';
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  modules: ['nitro-cloudflare-dev', '@nuxt/eslint'],
   devtools: { enabled: true },
 
   routeRules: {
@@ -8,8 +10,10 @@ export default defineNuxtConfig({
     '/api/**': {
       headers: {
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+        'Access-Control-Allow-Methods':
+          'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers':
+          'Origin, X-Requested-With, Content-Type, Accept, Authorization',
       },
     },
     // You can also add CORS headers to static assets if needed
@@ -21,13 +25,19 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: "cloudflare_module",
+    preset: 'cloudflare_module',
 
     cloudflare: {
       deployConfig: true,
-      nodeCompat: true
+      nodeCompat: true,
     },
   },
 
-  modules: ["nitro-cloudflare-dev"]
-})
+  hooks: {
+    'nitro:build:before': (nitro: Nitro) => {
+      nitro.options.moduleSideEffects.push('reflect-metadata');
+    },
+  },
+
+  compatibilityDate: '2025-10-28',
+});

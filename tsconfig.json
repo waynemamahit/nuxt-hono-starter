@@ -14,10 +14,11 @@
     {
       "path": "./.nuxt/tsconfig.node.json"
     }
-],
-"compilerOptions": {
-    "types": [
-        "./worker-configuration.d.ts"
-    ]
-}
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": ["reflect-metadata", "./worker-configuration.d.ts"]
+  }
 }
