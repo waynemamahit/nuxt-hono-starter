@@ -21,15 +21,15 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.9.0",
-    "@types/node": "^24.9.1",
+    "@nuxt/eslint": "^1.10.0",
+    "@types/node": "^24.9.2",
     "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "nitro-cloudflare-dev": "^0.2.2",
-    "nitropack": "^2.12.8",
+    "nitropack": "^2.12.9",
     "prettier": "^3.6.2",
     "typescript": "^5.9.3",
-    "wrangler": "^4.45.0"
+    "wrangler": "^4.45.1"
   }
 }
