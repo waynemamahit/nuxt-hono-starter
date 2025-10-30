@@ -1,0 +1,11 @@
+deploy_production:
+  stage: deploy
+  image: node:24-alpine
+  script:
+    - npm install -g pnpm@latest
+    - pnpm install
+    - pnpm build
+    - node scripts/flatten-wrangler.js production
+    - npx wrangler deploy
+  variables:
+    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN

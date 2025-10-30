@@ -1,0 +1,39 @@
+name: Deploy Cloudflare Worker to Staging
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      STAGING_KV_ID: ${{ vars.STAGING_KV_ID }}
+      STAGING_D1_ID: ${{ vars.STAGING_D1_ID }}
+      STAGING_HYPERDRIVE_ID: ${{ vars.STAGING_HYPERDRIVE_ID }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - name: Use Node.js 24
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build application
+        run: pnpm build
+
+      - name: Flatten Wrangler config
+        run: node scripts/flatten-wrangler.js staging
+
+      - name: Deploy to Staging
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy

@@ -1,0 +1,39 @@
+name: Deploy Cloudflare Worker to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      PRODUCTION_KV_ID: ${{ vars.PRODUCTION_KV_ID }}
+      PRODUCTION_D1_ID: ${{ vars.PRODUCTION_D1_ID }}
+      PRODUCTION_HYPERDRIVE_ID: ${{ vars.PRODUCTION_HYPERDRIVE_ID }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - name: Use Node.js 24
+        uses: actions/setup-node@v3
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build application
+        run: pnpm build
+
+      - name: Flatten Wrangler config
+        run: node scripts/flatten-wrangler.js production
+
+      - name: Deploy to Production
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: deploy

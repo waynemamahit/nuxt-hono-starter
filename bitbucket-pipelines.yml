@@ -1,0 +1,29 @@
+image: node:24
+
+pipelines:
+  branches:
+    # --- Staging Deployment ---
+    # This pipeline deploys the application to the staging environment
+    # when a commit is pushed to the `dev` branch.
+    dev:
+      - step:
+          name: 'Deploy to Staging'
+          script:
+            - npm install -g pnpm@latest
+            - pnpm install
+            - pnpm build
+            - node scripts/flatten-wrangler.js staging
+            - npx wrangler deploy
+
+    # --- Production Deployment ---
+    # This pipeline deploys the application to the production environment
+    # when a commit is pushed to the `main` branch.
+    main:
+      - step:
+          name: 'Deploy to Production'
+          script:
+            - npm install -g pnpm@latest
+            - pnpm install
+            - pnpm build
+            - node scripts/flatten-wrangler.js production
+            - npx wrangler deploy

@@ -2,19 +2,22 @@
   "name": "nuxt-hono-starter",
   "type": "module",
   "private": true,
+  "engines": {
+    "node": ">=24.11.0"
+  },
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "lint": "prettier --write . && eslint . --fix",
+    "build": "nuxt build",
     "generate": "nuxt generate",
-    "preview": "pnpm build && wrangler dev",
     "postinstall": "nuxt prepare",
+    "lint": "prettier --write . && eslint . --fix",
+    "preview": "pnpm build && node scripts/flatten-wrangler.js staging && wrangler dev",
     "deploy": "pnpm build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@quasar/extras": "^1.17.0",
-    "hono": "^4.10.3",
+    "hono": "^4.10.4",
     "inversify": "^7.10.4",
     "nuxt": "^4.2.0",
     "nuxt-quasar-ui": "2.1.13",
