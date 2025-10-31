@@ -63,8 +63,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       wrangler:
-        specifier: ^4.45.2
-        version: 4.45.2
+        specifier: ^4.45.3
+        version: 4.45.3
 
 packages:
   '@antfu/install-pkg@1.1.0':
@@ -1359,10 +1359,10 @@ packages:
     peerDependencies:
       vite: '>=6.0'
 
-  '@nuxt/devtools-kit@3.0.0':
+  '@nuxt/devtools-kit@3.0.1':
     resolution:
       {
-        integrity: sha512-/X8GLPYydj/Lbmti7M+HGPeeBCfzzZnAXtERjnbUqQsPNUmRMDt1nOSPHYN4NL6TaH3ECHt3HYqJt/O+Hw2kDg==,
+        integrity: sha512-BSSgpdawKuUw/y3iPOhskodjWr5/vbeiyDOarTzRWX2JmdF34dFeyEot2UwOvkEYgD2/wdxy+U5f0bp4pfcU0g==,
       }
     peerDependencies:
       vite: '>=6.0'
@@ -3179,10 +3179,10 @@ packages:
         integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==,
       }
 
-  caniuse-lite@1.0.30001751:
+  caniuse-lite@1.0.30001752:
     resolution:
       {
-        integrity: sha512-A0QJhug0Ly64Ii3eIqHu5X51ebln3k4yTUkY1j8drqpWHVreg/VLijN48cZ1bYPiqOQuqpkIKnzr/Ul8V+p6Cw==,
+        integrity: sha512-vKUk7beoukxE47P5gcVNKkDRzXdVofotshHwfR9vmpeFKxmI5PBpgOMC18LUJUA/DvJ70Y7RveasIBraqsyO/g==,
       }
 
   chalk@4.1.2:
@@ -3716,10 +3716,10 @@ packages:
         integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==,
       }
 
-  electron-to-chromium@1.5.243:
+  electron-to-chromium@1.5.244:
     resolution:
       {
-        integrity: sha512-ZCphxFW3Q1TVhcgS9blfut1PX8lusVi2SvXQgmEEnK4TCmE1JhH2JkjJN+DNt0pJJwfBri5AROBnz2b/C+YU9g==,
+        integrity: sha512-OszpBN7xZX4vWMPJwB9illkN/znA8M36GQqQxi6MNy9axWxhOfJyZZJtSLQCpEFLHP2xK33BiWx9aIuIEXVCcw==,
       }
 
   emoji-regex@8.0.0:
@@ -6634,10 +6634,10 @@ packages:
         integrity: sha512-qJj60CXt7IU1Ffyc3NJMjh6EkuCFej46zUqJ4J7pqYlThyd9bO0XBTmcOIhSzZJVWfsLks0+nle/j538YAW9RQ==,
       }
 
-  tar@7.5.1:
+  tar@7.5.2:
     resolution:
       {
-        integrity: sha512-nlGpxf+hv0v7GkWBK2V9spgactGOp0qvfWRxUMjqHyzrt3SgwE48DIv/FhqPHJYLHpgW1opq3nERbz5Anq7n1g==,
+        integrity: sha512-7NyxrTE4Anh8km8iEy7o0QYPs+0JKBTj5ZaqHg6B39erLg0qYXN3BijtShwbsNSvQ+LN75+KV+C4QR/f6Gwnpg==,
       }
     engines: { node: '>=18' }
 
@@ -6855,10 +6855,10 @@ packages:
       }
     engines: { node: '>=20.19.0' }
 
-  unplugin-vue-router@0.16.0:
+  unplugin-vue-router@0.16.1:
     resolution:
       {
-        integrity: sha512-yFmUQoN07KABkbxMSaNvfjnflwSi3nkSVKi7v6FTwXlzXyRDSx63vQ8Se4ho0T9Ao9I8U5FJB12fzmrGxFB0CA==,
+        integrity: sha512-7A7gUVzLIYMBrBPKk8l4lZoZXDOrO8+etw6/RTrqG3OzpLUUZEXJFUW7+OyMIpQK93sEbdkR2z9ZNNl/r32FMw==,
       }
     peerDependencies:
       '@vue/compiler-sfc': ^3.5.17
@@ -7216,10 +7216,10 @@ packages:
     engines: { node: '>=16' }
     hasBin: true
 
-  wrangler@4.45.2:
+  wrangler@4.45.3:
     resolution:
       {
-        integrity: sha512-+G24gD+Rh7iBus5QiVBhNgSLzyAiyuZSm+3Ih5li8+PEA+gosAXfDSZlNZwsVmXd8VJTjq+BR4vhUiruQRWgTw==,
+        integrity: sha512-0ddEA9t4HeBgSVTVTcqtBHl7Z5CorWZ8tGgTQCP5XuL+9E1TJRwS6t/zzG51Ruwjb17SZYCaLchoM8V629S8cw==,
       }
     engines: { node: '>=18.0.0' }
     hasBin: true
@@ -8049,7 +8049,7 @@ snapshots:
       node-fetch: 2.7.0
       nopt: 8.1.0
       semver: 7.7.3
-      tar: 7.5.1
+      tar: 7.5.2
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -8134,7 +8134,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxt/devtools-kit@3.0.0(magicast@0.3.5)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1))':
+  '@nuxt/devtools-kit@3.0.1(magicast@0.3.5)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@nuxt/kit': 4.2.0(magicast@0.3.5)
       execa: 8.0.1
@@ -8237,7 +8237,7 @@ snapshots:
   '@nuxt/eslint@1.10.0(@typescript-eslint/utils@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.22)(eslint@9.38.0(jiti@2.6.1))(magicast@0.3.5)(typescript@5.9.3)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@eslint/config-inspector': 1.3.0(eslint@9.38.0(jiti@2.6.1))
-      '@nuxt/devtools-kit': 3.0.0(magicast@0.3.5)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1))
+      '@nuxt/devtools-kit': 3.0.1(magicast@0.3.5)(vite@7.1.12(@types/node@24.9.2)(jiti@2.6.1)(terser@5.44.0)(yaml@2.8.1))
       '@nuxt/eslint-config': 1.10.0(@typescript-eslint/utils@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(@vue/compiler-sfc@3.5.22)(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3)
       '@nuxt/eslint-plugin': 1.10.0(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3)
       '@nuxt/kit': 4.2.0(magicast@0.3.5)
@@ -9288,7 +9288,7 @@ snapshots:
   autoprefixer@10.4.21(postcss@8.5.6):
     dependencies:
       browserslist: 4.27.0
-      caniuse-lite: 1.0.30001751
+      caniuse-lite: 1.0.30001752
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.1.1
@@ -9331,8 +9331,8 @@ snapshots:
   browserslist@4.27.0:
     dependencies:
       baseline-browser-mapping: 2.8.21
-      caniuse-lite: 1.0.30001751
-      electron-to-chromium: 1.5.243
+      caniuse-lite: 1.0.30001752
+      electron-to-chromium: 1.5.244
       node-releases: 2.0.27
       update-browserslist-db: 1.1.4(browserslist@4.27.0)
 
@@ -9397,11 +9397,11 @@ snapshots:
   caniuse-api@3.0.0:
     dependencies:
       browserslist: 4.27.0
-      caniuse-lite: 1.0.30001751
+      caniuse-lite: 1.0.30001752
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
 
-  caniuse-lite@1.0.30001751: {}
+  caniuse-lite@1.0.30001752: {}
 
   chalk@4.1.2:
     dependencies:
@@ -9673,7 +9673,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.243: {}
+  electron-to-chromium@1.5.244: {}
 
   emoji-regex@8.0.0: {}
 
@@ -10805,7 +10805,7 @@ snapshots:
       unctx: 2.4.1
       unimport: 5.5.0
       unplugin: 2.3.10
-      unplugin-vue-router: 0.16.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
+      unplugin-vue-router: 0.16.1(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       untyped: 2.0.0
       vue: 3.5.22(typescript@5.9.3)
       vue-router: 4.6.3(vue@3.5.22(typescript@5.9.3))
@@ -11648,7 +11648,7 @@ snapshots:
       - bare-abort-controller
       - react-native-b4a
 
-  tar@7.5.1:
+  tar@7.5.2:
     dependencies:
       '@isaacs/fs-minipass': 4.0.1
       chownr: 3.0.0
@@ -11780,7 +11780,7 @@ snapshots:
       pathe: 2.0.3
       picomatch: 4.0.3
 
-  unplugin-vue-router@0.16.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
+  unplugin-vue-router@0.16.1(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       '@babel/generator': 7.28.5
       '@vue-macros/common': 3.1.1(vue@3.5.22(typescript@5.9.3))
@@ -12039,7 +12039,7 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20251011.0
       '@cloudflare/workerd-windows-64': 1.20251011.0
 
-  wrangler@4.45.2:
+  wrangler@4.45.3:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@cloudflare/unenv-preset': 2.7.8(unenv@2.0.0-rc.21)(workerd@1.20251011.0)

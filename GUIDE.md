@@ -19,6 +19,9 @@ A correctly permissioned API token is crucial for the pipeline to work.
 | Account     | Workers KV Storage  | Edit     |
 | Account     | D1                  | Edit     |
 | Account     | Hyperdrive          | Edit     |
+| Account     | Workers AI          | Edit     |
+| Account     | Vectorize           | Edit     |
+| Account     | Browser Rendering   | Edit     |
 
 5.  **Set Account Resources:** Under **Account Resources**, select your account.
 6.  **Client IP Address Filtering:** Leave this section **blank**.
@@ -54,6 +57,12 @@ wrangler hyperdrive create "staging-hyperdrive" --connection-string="your-stagin
 wrangler hyperdrive create "production-hyperdrive" --connection-string="your-production-db-connection-string"
 ```
 
+### 4. Create Vectorize Indexes
+
+```bash
+wrangler vectorize create "counter_index" --dimensions=1024 --metric=cosine
+```
+
 ---
 
 ## Part 3: Configure CI/CD Secrets and Variables
@@ -76,12 +85,16 @@ In the same settings area for your repository, create the following **variables*
 - `STAGING_KV_ID`: The ID from your staging KV namespace.
 - `STAGING_D1_ID`: The `database_id` from your staging D1 database.
 - `STAGING_HYPERDRIVE_ID`: The ID from your staging Hyperdrive config.
+- `STAGING_VECTORIZE_INDEX_NAME`: The name of your staging Vectorize index (e.g., "counter_index").
+- `STAGING_DO_SCRIPT_NAME`: The name of the worker script for your Durable Object (e.g., "nuxt-hono-starter-dev").
 
 **Production Variables:**
 
 - `PRODUCTION_KV_ID`: The ID from your production KV namespace.
 - `PRODUCTION_D1_ID`: The `database_id` from your production D1 database.
 - `PRODUCTION_HYPERDRIVE_ID`: The ID from your production Hyperdrive config.
+- `PRODUCTION_VECTORIZE_INDEX_NAME`: The name of your production Vectorize index.
+- `PRODUCTION_DO_SCRIPT_NAME`: The name of the worker script for your Durable Object (e.g., "nuxt-hono-starter-production").
 
 This is the only place you need to put these IDs. You do not need to edit `wrangler.jsonc`.
 
@@ -101,9 +114,44 @@ WRANGLER_ENV=staging
 STAGING_KV_ID="a1b2c3d4e5f6..."
 STAGING_D1_ID="b2c3d4e5f6a1..."
 STAGING_HYPERDRIVE_ID="c3d4e5f6a1b2..."
+STAGING_VECTORIZE_INDEX_NAME="nuxt-hono-starter-vector-index-dev"
+STAGING_DO_SCRIPT_NAME="nuxt-hono-starter-do-dev"
 ```
 
 Once this file is configured, you can use the following commands:
 
 - **`pnpm dev`**: Starts the Nuxt development server with a live connection to your Cloudflare staging resources.
 - **`pnpm preview`**: Creates a production build and serves it locally using Wrangler, connected to your staging resources.
+
+---
+
+## Part 5: Accessing Bindings in Code
+
+You can access all configured bindings through the Hono context object (`c.env`). The TypeScript types for these bindings are automatically generated.
+
+- **Durable Objects (`DURABLE_OBJECTS`)**
+  The project includes a high-performance counter example that demonstrates best practices for scalable applications. It uses in-memory caching for state and batches writes to persistent storage using alarms. This pattern significantly reduces storage operations, making it suitable for high-throughput scenarios.
+
+  ```typescript
+  // Accessing the Durable Object remains the same
+  const durableObject = c.env.DURABLE_OBJECTS.get(id);
+  ```
+
+- **Workers AI (`AI`)**
+
+  ```typescript
+  const response = await c.env.AI.run('@cf/meta/llama-2-7b-chat-int8', {
+    prompt: 'your prompt here',
+  });
+  ```
+
+- **Vectorize (`VECTORIZE`)**
+
+  ```typescript
+  const matches = await c.env.VECTORIZE.query(vector, { topK: 5 });
+  ```
+
+- **Browser Rendering (`BROWSER`)**
+  ```typescript
+  const browser = await puppeteer.get(c.env.BROWSER);
+  ```

@@ -5,6 +5,15 @@ export default defineNuxtConfig({
   modules: ['nitro-cloudflare-dev', '@nuxt/eslint', 'nuxt-quasar-ui'],
   devtools: { enabled: true },
 
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        experimentalDecorators: true,
+        emitDecoratorMetadata: true,
+      },
+    },
+  },
+
   routeRules: {
     // Apply CORS headers to specific routes (e.g., your API routes)
     '/api/**': {
@@ -26,6 +35,16 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare_module',
+
+    esbuild: {
+      options: {
+        tsconfigRaw: {
+          compilerOptions: {
+            experimentalDecorators: true,
+          },
+        },
+      },
+    },
 
     cloudflare: {
       deployConfig: true,

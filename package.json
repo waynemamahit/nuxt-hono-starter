@@ -36,6 +36,6 @@
     "nitropack": "^2.12.9",
     "prettier": "^3.6.2",
     "typescript": "^5.9.3",
-    "wrangler": "^4.45.2"
+    "wrangler": "^4.45.3"
   }
 }

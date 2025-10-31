@@ -36,6 +36,30 @@
           "localConnectionString": "postgres://postgres:postgres@127.0.0.1:5432/nuxt_hono_starter_staging_db",
         },
       ],
+      // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
+      // "durable_objects": {
+      //   "bindings": [
+      //     {
+      //       "name": "DURABLE_OBJECTS",
+      //       "class_name": "CounterDurableObjectWrapper",
+      //       "script_name": "${STAGING_DO_SCRIPT_NAME}"
+      //     }
+      //   ]
+      // },
+      "ai": {
+        "binding": "AI",
+        "remote": true,
+      },
+      "vectorize": [
+        {
+          "binding": "VECTORIZE",
+          "index_name": "${STAGING_VECTORIZE_INDEX_NAME}",
+          "remote": true,
+        },
+      ],
+      "browser": {
+        "binding": "BROWSER",
+      },
     },
     "production": {
       "name": "nuxt-hono-starter-production",
@@ -62,6 +86,30 @@
           "localConnectionString": "postgres://postgres:postgres@127.0.0.1:5432/nuxt_hono_starter_production_db",
         },
       ],
+      // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
+      // "durable_objects": {
+      //   "bindings": [
+      //     {
+      //       "name": "DURABLE_OBJECTS",
+      //       "class_name": "CounterDurableObjectWrapper",
+      //       "script_name": "${PRODUCTION_DO_SCRIPT_NAME}"
+      //     }
+      //   ]
+      // },
+      "ai": {
+        "binding": "AI",
+        "remote": true,
+      },
+      "vectorize": [
+        {
+          "binding": "VECTORIZE",
+          "index_name": "${PRODUCTION_VECTORIZE_INDEX_NAME}",
+          "remote": true,
+        },
+      ],
+      "browser": {
+        "binding": "BROWSER",
+      },
     },
   },
 }

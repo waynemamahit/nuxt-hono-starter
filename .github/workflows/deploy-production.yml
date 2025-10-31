@@ -12,15 +12,16 @@ jobs:
       PRODUCTION_KV_ID: ${{ vars.PRODUCTION_KV_ID }}
       PRODUCTION_D1_ID: ${{ vars.PRODUCTION_D1_ID }}
       PRODUCTION_HYPERDRIVE_ID: ${{ vars.PRODUCTION_HYPERDRIVE_ID }}
+      PRODUCTION_DO_SCRIPT_NAME: ${{ vars.PRODUCTION_DO_SCRIPT_NAME }}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
         with:
           version: latest
-      - name: Use Node.js 24
+      - name: Use Node.js 24.11.0
         uses: actions/setup-node@v3
         with:
-          node-version: 24
+          node-version: '24.11.0'
           cache: 'pnpm'
 
       - name: Install dependencies

@@ -1,6 +1,6 @@
 deploy_production:
   stage: deploy
-  image: node:24-alpine
+  image: node:24.11.0-alpine
   script:
     - npm install -g pnpm@latest
     - pnpm install

@@ -1,5 +1,5 @@
 import eventReminder from './apps/event-reminder';
-import app from './boostrap';
+import app from './bootstrap';
 
 // Routes
 app.route('/event-reminder', eventReminder);
