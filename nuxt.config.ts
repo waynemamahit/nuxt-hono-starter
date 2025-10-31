@@ -2,7 +2,7 @@ import type { Nitro } from 'nitropack';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', 'nuxt-quasar-ui'],
+  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', 'vuetify-nuxt-module'],
   devtools: { enabled: true },
 
   typescript: {
@@ -11,6 +11,15 @@ export default defineNuxtConfig({
         experimentalDecorators: true,
         emitDecoratorMetadata: true,
       },
+    },
+  },
+
+  vuetify: {
+    moduleOptions: {
+      /* module specific options */
+    },
+    vuetifyOptions: {
+      /* vuetify options */
     },
   },
 
