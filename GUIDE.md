@@ -60,7 +60,7 @@ wrangler hyperdrive create "production-hyperdrive" --connection-string="your-pro
 ### 4. Create Vectorize Indexes
 
 ```bash
-wrangler vectorize create "counter_index" --dimensions=1024 --metric=cosine
+wrangler vectorize create "nuxthono-index-dev" --dimensions=1024 --metric=cosine
 ```
 
 ---
@@ -114,7 +114,7 @@ WRANGLER_ENV=staging
 STAGING_KV_ID="a1b2c3d4e5f6..."
 STAGING_D1_ID="b2c3d4e5f6a1..."
 STAGING_HYPERDRIVE_ID="c3d4e5f6a1b2..."
-STAGING_VECTORIZE_INDEX_NAME="nuxt-hono-starter-vector-index-dev"
+STAGING_VECTORIZE_INDEX_NAME="nuxthono-index-dev"
 STAGING_DO_SCRIPT_NAME="nuxt-hono-starter-do-dev"
 ```
 

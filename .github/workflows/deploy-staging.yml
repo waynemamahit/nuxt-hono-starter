@@ -12,6 +12,7 @@ jobs:
       STAGING_KV_ID: ${{ vars.STAGING_KV_ID }}
       STAGING_D1_ID: ${{ vars.STAGING_D1_ID }}
       STAGING_HYPERDRIVE_ID: ${{ vars.STAGING_HYPERDRIVE_ID }}
+      STAGING_VECTORIZE_INDEX_NAME: ${{ vars.STAGING_VECTORIZE_INDEX_NAME }}
       STAGING_DO_SCRIPT_NAME: ${{ vars.STAGING_DO_SCRIPT_NAME }}
     steps:
       - uses: actions/checkout@v3
