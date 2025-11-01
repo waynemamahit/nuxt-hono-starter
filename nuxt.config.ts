@@ -2,7 +2,7 @@ import type { Nitro } from 'nitropack';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', 'nuxt-quasar-ui'],
+  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', '@element-plus/nuxt'],
   devtools: { enabled: true },
 
   typescript: {

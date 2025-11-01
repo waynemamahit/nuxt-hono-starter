@@ -10,18 +10,18 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "postinstall": "nuxt prepare",
-    "lint": "prettier --write . && eslint . --fix",
+    "lint": "prettier --write . && eslint .",
     "preview": "pnpm build && node scripts/flatten-wrangler.js staging && wrangler dev",
     "deploy": "pnpm build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@quasar/extras": "^1.17.0",
+    "@element-plus/icons-vue": "^2.3.2",
+    "@element-plus/nuxt": "1.1.4",
+    "element-plus": "^2.11.7",
     "hono": "^4.10.4",
     "inversify": "^7.10.4",
     "nuxt": "^4.2.0",
-    "nuxt-quasar-ui": "2.1.13",
-    "quasar": "^2.18.5",
     "reflect-metadata": "^0.2.2",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3"
@@ -29,7 +29,7 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
     "@types/node": "^24.9.2",
-    "eslint": "^9.38.0",
+    "eslint": "9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "nitro-cloudflare-dev": "^0.2.2",
