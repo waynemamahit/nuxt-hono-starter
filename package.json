@@ -10,7 +10,7 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "postinstall": "nuxt prepare",
-    "lint": "prettier --write . && eslint .",
+    "lint": "prettier --write . && eslint . --fix",
     "preview": "pnpm build && node scripts/flatten-wrangler.js staging && wrangler dev",
     "deploy": "pnpm build && wrangler deploy",
     "cf-typegen": "wrangler types"

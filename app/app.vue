@@ -30,11 +30,7 @@ useHead({
           Nuxt-Hono Starter
         </div>
         <div class="flex-grow" />
-        <el-button
-          text
-          :icon="IconMenu"
-          aria-label="Open navigation menu"
-        ></el-button>
+        <el-button text :icon="IconMenu" aria-label="Open navigation menu" />
       </div>
     </el-header>
 
@@ -53,11 +49,12 @@ useHead({
             type="primary"
             size="large"
             aria-describedby="get-started-desc"
-            >Get Started</el-button
           >
-          <el-button size="large" aria-describedby="learn-more-desc"
-            >Learn More</el-button
-          >
+            Get Started
+          </el-button>
+          <el-button size="large" aria-describedby="learn-more-desc">
+            Learn More
+          </el-button>
         </div>
         <!-- Hidden descriptions for screen readers -->
         <div id="get-started-desc" class="sr-only">
@@ -109,7 +106,10 @@ useHead({
     </el-main>
 
     <!-- Footer -->
-    <el-footer class="bg-gray-100 text-gray-600 text-center p-5" role="contentinfo">
+    <el-footer
+      class="bg-gray-100 text-gray-600 text-center p-5"
+      role="contentinfo"
+    >
       <div>Built with ❤️ using Nuxt, Element Plus, and Hono</div>
     </el-footer>
   </el-container>
