@@ -19,7 +19,7 @@ useHead({
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <el-header
-      class="bg-blue-500 text-white flex items-center h-16 shadow-md px-5"
+      class="bg-blue-700 text-white flex items-center h-16 shadow-md px-5"
       role="banner"
     >
       <div class="flex items-center w-full">
@@ -46,7 +46,7 @@ useHead({
         </p>
         <div class="space-x-4">
           <el-button
-            type="primary"
+            class="bg-blue-700"
             size="large"
             aria-describedby="get-started-desc"
           >
