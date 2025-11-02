@@ -2,7 +2,12 @@ import type { Nitro } from 'nitropack';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', 'nuxt-quasar-ui'],
+  modules: [
+    'nitro-cloudflare-dev',
+    '@nuxt/eslint',
+    '@nuxtjs/i18n',
+    'nuxt-quasar-ui',
+  ],
   devtools: { enabled: true },
 
   typescript: {
@@ -59,4 +64,10 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-10-28',
+
+  i18n: {
+    baseUrl: '/',
+    locales: [{ code: 'en', language: 'en-US' }],
+    defaultLocale: 'en',
+  },
 });

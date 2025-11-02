@@ -1,5 +1,10 @@
 <script setup lang="ts">
+const i18nHead = useLocaleHead();
+
 useHead({
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs.lang,
+  },
   title: 'Nuxt Hono Starter Project',
   meta: [
     {
@@ -41,7 +46,7 @@ useHead({
             class="text-h6 text-grey-7 q-mb-xl"
             aria-describedby="hero-description"
           >
-            A powerful starter template combining Nuxt 3, Quasar UI, and Hono
+            A powerful starter template combining Nuxt 4, Quasar UI, and Hono
             for building modern web applications.
           </p>
           <div class="q-gutter-sm">
@@ -76,7 +81,7 @@ useHead({
             <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
               <q-card class="full-height">
                 <q-card-section>
-                  <h3 class="text-h6">Nuxt 3</h3>
+                  <h3 class="text-h6">Nuxt 4</h3>
                   <p class="text-subtitle2">
                     Modern Vue.js framework with SSR and SSG support.
                   </p>
