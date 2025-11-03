@@ -11,7 +11,9 @@
     "generate": "nuxt generate",
     "postinstall": "nuxt prepare",
     "lint": "prettier --write . && eslint . --fix",
-    "preview": "pnpm build && node scripts/flatten-wrangler.js staging && wrangler dev",
+    "preview": "pnpm preview:local",
+    "preview:local": "pnpm build && node scripts/flatten-wrangler.js staging && wrangler dev --local",
+    "preview:remote": "pnpm build && node scripts/flatten-wrangler.js staging && set NODE_TLS_REJECT_UNAUTHORIZED=0&& wrangler dev",
     "deploy": "pnpm build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
