@@ -25,10 +25,11 @@
     "nuxt-quasar-ui": "2.1.13",
     "quasar": "2.18.5",
     "reflect-metadata": "0.2.2",
-    "vue": "3.5.22",
+    "vue": "3.5.23",
     "vue-router": "4.6.3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251014.0",
     "@nuxt/eslint": "1.10.0",
     "@types/node": "24.10.0",
     "eslint": "9.39.1",
@@ -38,6 +39,6 @@
     "nitropack": "2.12.9",
     "prettier": "3.6.2",
     "typescript": "5.9.3",
-    "wrangler": "4.45.3"
+    "wrangler": "4.45.4"
   }
 }

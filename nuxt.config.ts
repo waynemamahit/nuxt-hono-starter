@@ -2,6 +2,7 @@ import type { Nitro } from 'nitropack';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  srcDir: 'app/',
   modules: [
     'nitro-cloudflare-dev',
     '@nuxt/eslint',
@@ -39,7 +40,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'cloudflare_module',
+    preset: 'cloudflare-durable',
 
     esbuild: {
       options: {

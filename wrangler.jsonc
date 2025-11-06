@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nuxt-hono-starter",
   "main": "./.output/server/index.mjs",
-  "compatibility_date": "2025-10-16",
+  "compatibility_date": "2025-10-11",
   "observability": {
     "enabled": true,
   },
@@ -37,15 +37,14 @@
         },
       ],
       // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
-      // "durable_objects": {
-      //   "bindings": [
-      //     {
-      //       "name": "DURABLE_OBJECTS",
-      //       "class_name": "CounterDurableObjectWrapper",
-      //       "script_name": "${STAGING_DO_SCRIPT_NAME}"
-      //     }
-      //   ]
-      // },
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "$DurableObject",
+            "class_name": "$DurableObject",
+          },
+        ],
+      },
       "ai": {
         "binding": "AI",
         "remote": true,
@@ -87,15 +86,14 @@
         },
       ],
       // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
-      // "durable_objects": {
-      //   "bindings": [
-      //     {
-      //       "name": "DURABLE_OBJECTS",
-      //       "class_name": "CounterDurableObjectWrapper",
-      //       "script_name": "${PRODUCTION_DO_SCRIPT_NAME}"
-      //     }
-      //   ]
-      // },
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "$DurableObject",
+            "class_name": "$DurableObject",
+          },
+        ],
+      },
       "ai": {
         "binding": "AI",
         "remote": true,
