@@ -1,7 +1,6 @@
 import { Hono } from 'hono';
 import { upgradeWebSocket } from 'hono/cloudflare-workers';
 import type { DurableObjectState, WebSocket } from '@cloudflare/workers-types';
-import app from '../bootstrap';
 
 interface Session {
   ws: WebSocket;
@@ -11,13 +10,13 @@ interface Session {
 export class $DurableObject {
   state: DurableObjectState;
   sessions: Session[] = [];
+  app: Hono = new Hono();
 
   constructor(state: DurableObjectState) {
     this.state = state;
-  }
 
-  async fetch(request: Request) {
-    app.get(
+    // The request path from the main worker is `/chat`.
+    this.app.get(
       '/chat',
       upgradeWebSocket(async (c) => {
         return {
@@ -47,8 +46,10 @@ export class $DurableObject {
         };
       })
     );
+  }
 
-    return await app.fetch(request);
+  async fetch(request: Request) {
+    return this.app.fetch(request);
   }
 
   broadcast(message: string) {
