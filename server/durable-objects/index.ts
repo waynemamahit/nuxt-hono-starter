@@ -21,10 +21,17 @@ export class $DurableObject {
     app.get(
       '/api/chat',
       upgradeWebSocket(async (c) => {
-        // Load and send previous messages
-        const messages: string[] = (await this.state.storage.get('messages')) || [];
-
         return {
+          onOpen: async (_event, ws) => {
+            const session: Session = { ws };
+            this.sessions.push(session);
+
+            // Send previous messages
+            const messages: string[] = (await this.state.storage.get('messages')) || [];
+            messages.forEach((msg) => {
+              ws.send(msg);
+            });
+          },
           onMessage: async (event, ws) => {
             const currentMessages: string[] =
               (await this.state.storage.get('messages')) || [];
@@ -42,19 +49,7 @@ export class $DurableObject {
       })
     );
 
-    const res = await app.fetch(request);
-    if (res.webSocket) {
-      const session: Session = { ws: res.webSocket };
-      this.sessions.push(session);
-
-      // Send previous messages after upgrade
-      const messages: string[] = (await this.state.storage.get('messages')) || [];
-      messages.forEach((msg) => {
-        res.webSocket.send(msg);
-      });
-    }
-
-    return res;
+    return await app.fetch(request);
   }
 
   broadcast(message: string) {
