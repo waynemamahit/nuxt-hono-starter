@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nuxt-hono-starter",
   "main": "./.output/server/index.mjs",
-  "compatibility_date": "2025-10-16",
+  "compatibility_date": "2025-10-11",
   "observability": {
     "enabled": true,
   },
@@ -16,12 +16,14 @@
       "vars": {
         "DEPLOYMENT_ENVIRONMENT": "staging",
       },
+      // For more information on KV, see https://developers.cloudflare.com/workers/runtime-apis/kv/
       "kv_namespaces": [
         {
           "binding": "KV",
           "id": "${STAGING_KV_ID}",
         },
       ],
+      // For more information on D1, see https://developers.cloudflare.com/d1/
       "d1_databases": [
         {
           "binding": "D1",
@@ -29,6 +31,7 @@
           "database_id": "${STAGING_D1_ID}",
         },
       ],
+      // For more information on Hyperdrive, see https://developers.cloudflare.com/hyperdrive/
       "hyperdrive": [
         {
           "binding": "HYPERDRIVE",
@@ -46,10 +49,12 @@
       //     }
       //   ]
       // },
+      // For more information on Workers AI, see https://developers.cloudflare.com/workers-ai/
       "ai": {
         "binding": "AI",
         "remote": true,
       },
+      // For more information on Vectorize, see https://developers.cloudflare.com/vectorize/
       "vectorize": [
         {
           "binding": "VECTORIZE",
@@ -57,6 +62,7 @@
           "remote": true,
         },
       ],
+      // For more information on Browser Rendering, see https://developers.cloudflare.com/browser-rendering/
       "browser": {
         "binding": "BROWSER",
       },
@@ -66,12 +72,14 @@
       "vars": {
         "DEPLOYMENT_ENVIRONMENT": "production",
       },
+      // For more information on KV, see https://developers.cloudflare.com/workers/runtime-apis/kv/
       "kv_namespaces": [
         {
           "binding": "KV",
           "id": "${PRODUCTION_KV_ID}",
         },
       ],
+      // For more information on D1, see https://developers.cloudflare.com/d1/
       "d1_databases": [
         {
           "binding": "D1",
@@ -79,6 +87,7 @@
           "database_id": "${PRODUCTION_D1_ID}",
         },
       ],
+      // For more information on Hyperdrive, see https://developers.cloudflare.com/hyperdrive/
       "hyperdrive": [
         {
           "binding": "HYPERDRIVE",
@@ -96,10 +105,12 @@
       //     }
       //   ]
       // },
+      // For more information on Workers AI, see https://developers.cloudflare.com/workers-ai/
       "ai": {
         "binding": "AI",
         "remote": true,
       },
+      // For more information on Vectorize, see https://developers.cloudflare.com/vectorize/
       "vectorize": [
         {
           "binding": "VECTORIZE",
@@ -107,6 +118,7 @@
           "remote": true,
         },
       ],
+      // For more information on Browser Rendering, see https://developers.cloudflare.com/browser-rendering/
       "browser": {
         "binding": "BROWSER",
       },
