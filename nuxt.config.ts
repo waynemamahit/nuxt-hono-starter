@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import type { Nitro } from 'nitropack';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -6,7 +7,7 @@ export default defineNuxtConfig({
     'nitro-cloudflare-dev',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
-    'nuxt-quasar-ui',
+    '@element-plus/nuxt',
   ],
   devtools: { enabled: true },
 
@@ -69,5 +70,10 @@ export default defineNuxtConfig({
     baseUrl: '/',
     locales: [{ code: 'en', language: 'en-US' }],
     defaultLocale: 'en',
+  },
+
+  css: ['./app/assets/css/main.css'],
+  vite: {
+    plugins: [tailwindcss()],
   },
 });

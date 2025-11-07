@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Menu as IconMenu } from '@element-plus/icons-vue';
 const i18nHead = useLocaleHead();
 
 useHead({
@@ -17,113 +18,108 @@ useHead({
 </script>
 
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <el-container class="bg-primary-700 flex flex-col min-h-screen">
     <!-- Skip to main content link for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <q-header elevated class="bg-primary text-white" role="banner">
-      <q-toolbar>
-        <q-toolbar-title aria-label="Nuxt-Hono Starter Homepage"
-          >Nuxt-Hono Starter</q-toolbar-title
+    <el-header
+      class="bg-primary-700! flex items-center h-16 shadow-md px-5"
+      role="banner"
+    >
+      <div class="flex items-center w-full">
+        <div
+          class="text-xl font-medium"
+          aria-label="Nuxt-Hono Starter Homepage"
         >
-        <q-space />
-        <q-btn flat dense round icon="menu" aria-label="Open navigation menu" />
-      </q-toolbar>
-    </q-header>
+          Nuxt-Hono Starter
+        </div>
+        <div class="grow" />
+        <el-button text :icon="IconMenu" aria-label="Open navigation menu" />
+      </div>
+    </el-header>
 
-    <q-page-container>
-      <q-page
-        id="main-content"
-        class="flex flex-center column q-gutter-md"
-        role="main"
-      >
-        <!-- Hero Section -->
-        <section class="text-center q-pa-lg" aria-labelledby="hero-heading">
-          <h1 id="hero-heading" class="text-h3 text-weight-bold q-mb-md">
-            Welcome to Nuxt-Hono Starter
-          </h1>
-          <p
-            class="text-h6 text-grey-7 q-mb-xl"
-            aria-describedby="hero-description"
+    <el-main id="main-content" role="main" class="p-5">
+      <!-- Hero Section -->
+      <section class="text-center py-10" aria-labelledby="hero-heading">
+        <h1 id="hero-heading" class="text-4xl font-bold mb-4">
+          Welcome to Nuxt-Hono Starter
+        </h1>
+        <p id="hero-description" class="text-lg text-gray-600 mb-8">
+          A powerful starter template combining Nuxt 4, Element Plus UI, and
+          Hono for building modern web applications.
+        </p>
+        <div class="space-x-4">
+          <el-button
+            size="large"
+            class="bg-primary-700!"
+            aria-describedby="get-started-desc"
           >
-            A powerful starter template combining Nuxt 4, Quasar UI, and Hono
-            for building modern web applications.
-          </p>
-          <div class="q-gutter-sm">
-            <q-btn
-              color="primary"
-              label="Get Started"
-              size="lg"
-              aria-describedby="get-started-desc"
-            />
-            <q-btn
-              color="blue-grey-10"
-              label="Learn More"
-              size="lg"
-              aria-describedby="learn-more-desc"
-            />
-          </div>
-          <!-- Hidden descriptions for screen readers -->
-          <div id="get-started-desc" class="sr-only">
-            Start building your application with this starter template
-          </div>
-          <div id="learn-more-desc" class="sr-only">
-            Read more about the features and setup of this starter
-          </div>
-        </section>
+            Get Started
+          </el-button>
+          <el-button size="large" aria-describedby="learn-more-desc">
+            Learn More
+          </el-button>
+        </div>
+        <!-- Hidden descriptions for screen readers -->
+        <div id="get-started-desc" class="sr-only">
+          Start building your application with this starter template
+        </div>
+        <div id="learn-more-desc" class="sr-only">
+          Read more about the features and setup of this starter
+        </div>
+      </section>
 
-        <!-- Features Section -->
-        <section class="q-pa-lg" aria-labelledby="features-heading">
-          <h2 id="features-heading" class="text-h4 text-center q-mb-lg">
-            Key Features
-          </h2>
-          <div class="row justify-center q-gutter-md" role="list">
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
-                  <h3 class="text-h6">Nuxt 4</h3>
-                  <p class="text-subtitle2">
-                    Modern Vue.js framework with SSR and SSG support.
-                  </p>
-                </q-card-section>
-              </q-card>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
-                  <h3 class="text-h6">Quasar UI</h3>
-                  <p class="text-subtitle2">
-                    Beautiful, responsive components for rapid development.
-                  </p>
-                </q-card-section>
-              </q-card>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
-                  <h3 class="text-h6">Hono Backend</h3>
-                  <p class="text-subtitle2">
-                    Lightweight, fast API server with Cloudflare integration.
-                  </p>
-                </q-card-section>
-              </q-card>
-            </div>
-          </div>
-        </section>
-      </q-page>
-    </q-page-container>
+      <!-- Features Section -->
+      <section class="py-10" aria-labelledby="features-heading">
+        <h2 id="features-heading" class="text-3xl text-center mb-8">
+          Key Features
+        </h2>
+        <el-row :gutter="20" role="list">
+          <el-col :xs="24" :sm="12" :md="8" role="listitem">
+            <el-card class="h-full">
+              <template #header>
+                <h3 class="text-xl m-0">Nuxt 4</h3>
+              </template>
+              <p class="text-gray-600">
+                Modern Vue.js framework with SSR and SSG support.
+              </p>
+            </el-card>
+          </el-col>
+          <el-col :xs="24" :sm="12" :md="8" role="listitem">
+            <el-card class="h-full">
+              <template #header>
+                <h3 class="text-xl m-0">Element Plus UI</h3>
+              </template>
+              <p class="text-gray-600">
+                Beautiful, responsive components for rapid development.
+              </p>
+            </el-card>
+          </el-col>
+          <el-col :xs="24" :sm="12" :md="8" role="listitem">
+            <el-card class="h-full">
+              <template #header>
+                <h3 class="text-xl m-0">Hono Backend</h3>
+              </template>
+              <p class="text-gray-600">
+                Lightweight, fast API server with Cloudflare integration.
+              </p>
+            </el-card>
+          </el-col>
+        </el-row>
+      </section>
+    </el-main>
 
     <!-- Footer -->
-    <q-footer
-      class="bg-grey-8 text-white text-center q-pa-md"
+    <el-footer
+      class="bg-gray-100 text-gray-600 text-center p-5"
       role="contentinfo"
     >
-      <div>Built with ❤️ using Nuxt, Quasar, and Hono</div>
-    </q-footer>
-  </q-layout>
+      <div>Built with ❤️ using Nuxt, Element Plus, and Hono</div>
+    </el-footer>
+  </el-container>
 </template>
 
-<style scoped>
+<style>
 /* Accessibility styles */
 .skip-link {
   position: absolute;
