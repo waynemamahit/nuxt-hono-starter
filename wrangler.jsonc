@@ -36,7 +36,7 @@
         {
           "binding": "HYPERDRIVE",
           "id": "${STAGING_HYPERDRIVE_ID}",
-          "localConnectionString": "postgres://postgres:postgres@127.0.0.1:5432/nuxt_hono_starter_staging_db",
+          "localConnectionString": "postgres://postgres:postgres@127.0.0.1:5432/staging_db",
         },
       ],
       // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
@@ -92,7 +92,7 @@
         {
           "binding": "HYPERDRIVE",
           "id": "${PRODUCTION_HYPERDRIVE_ID}",
-          "localConnectionString": "postgres://postgres:postgres@127.0.0.1:5432/nuxt_hono_starter_production_db",
+          "localConnectionString": "postgres://postgres:postgres@127.0.0.1:5432/production_db",
         },
       ],
       // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
