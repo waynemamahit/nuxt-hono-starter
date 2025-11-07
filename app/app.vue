@@ -17,138 +17,143 @@ useHead({
 </script>
 
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <div class="flex flex-col min-h-screen">
     <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a
+      href="#main-content"
+      class="absolute -top-10 left-1.5 bg-black text-white px-2 py-2 no-underline z-100 focus:top-1.5"
+    >
+      Skip to main content
+    </a>
 
-    <q-header elevated class="bg-primary text-white" role="banner">
-      <q-toolbar>
-        <q-toolbar-title aria-label="Nuxt-Hono Starter Homepage"
-          >Nuxt-Hono Starter</q-toolbar-title
+    <!-- Header -->
+    <Menubar :model="[]" role="banner" class="bg-primary! border-0">
+      <template #start>
+        <span
+          class="text-xl font-semibold"
+          aria-label="Nuxt-Hono Starter Homepage"
         >
-        <q-space />
-        <q-btn flat dense round icon="menu" aria-label="Open navigation menu" />
-      </q-toolbar>
-    </q-header>
+          Nuxt-Hono Starter
+        </span>
+      </template>
+      <template #end>
+        <Button icon="pi pi-bars" rounded aria-label="Open navigation menu" />
+      </template>
+    </Menubar>
 
-    <q-page-container>
-      <q-page
-        id="main-content"
-        class="flex flex-center column q-gutter-md"
-        role="main"
+    <!-- Main Content -->
+    <main
+      id="main-content"
+      class="flex-1 flex flex-col items-center gap-12 px-4 py-8"
+      role="main"
+    >
+      <!-- Hero Section -->
+      <section
+        class="text-center py-12 max-w-3xl"
+        aria-labelledby="hero-heading"
       >
-        <!-- Hero Section -->
-        <section class="text-center q-pa-lg" aria-labelledby="hero-heading">
-          <h1 id="hero-heading" class="text-h3 text-weight-bold q-mb-md">
-            Welcome to Nuxt-Hono Starter
-          </h1>
-          <p
-            class="text-h6 text-grey-7 q-mb-xl"
-            aria-describedby="hero-description"
+        <h1
+          id="hero-heading"
+          class="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
+        >
+          Welcome to Nuxt-Hono Starter
+        </h1>
+        <p
+          class="text-xl text-gray-600 mb-8 leading-relaxed"
+          aria-describedby="hero-description"
+        >
+          A powerful starter template combining Nuxt 4, PrimeVue UI, and Hono
+          for building modern web applications.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Button
+            size="large"
+            aria-describedby="get-started-desc"
+            class="bg-primary! px-6 py-3"
           >
-            A powerful starter template combining Nuxt 4, Quasar UI, and Hono
-            for building modern web applications.
-          </p>
-          <div class="q-gutter-sm">
-            <q-btn
-              color="primary"
-              label="Get Started"
-              size="lg"
-              aria-describedby="get-started-desc"
-            />
-            <q-btn
-              color="blue-grey-10"
-              label="Learn More"
-              size="lg"
-              aria-describedby="learn-more-desc"
-            />
-          </div>
-          <!-- Hidden descriptions for screen readers -->
-          <div id="get-started-desc" class="sr-only">
-            Start building your application with this starter template
-          </div>
-          <div id="learn-more-desc" class="sr-only">
-            Read more about the features and setup of this starter
-          </div>
-        </section>
+            Get Started
+          </Button>
+          <Button
+            severity="secondary"
+            size="large"
+            aria-describedby="learn-more-desc"
+            class="px-6 py-3"
+          >
+            Learn More
+          </Button>
+        </div>
+        <!-- Hidden descriptions for screen readers -->
+        <div
+          id="get-started-desc"
+          class="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0"
+          style="clip: rect(0, 0, 0, 0)"
+        >
+          Start building your application with this starter template
+        </div>
+        <div
+          id="learn-more-desc"
+          class="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0"
+          style="clip: rect(0, 0, 0, 0)"
+        >
+          Read more about the features and setup of this starter
+        </div>
+      </section>
 
-        <!-- Features Section -->
-        <section class="q-pa-lg" aria-labelledby="features-heading">
-          <h2 id="features-heading" class="text-h4 text-center q-mb-lg">
-            Key Features
-          </h2>
-          <div class="row justify-center q-gutter-md" role="list">
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
-                  <h3 class="text-h6">Nuxt 4</h3>
-                  <p class="text-subtitle2">
-                    Modern Vue.js framework with SSR and SSG support.
-                  </p>
-                </q-card-section>
-              </q-card>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
-                  <h3 class="text-h6">Quasar UI</h3>
-                  <p class="text-subtitle2">
-                    Beautiful, responsive components for rapid development.
-                  </p>
-                </q-card-section>
-              </q-card>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
-                  <h3 class="text-h6">Hono Backend</h3>
-                  <p class="text-subtitle2">
-                    Lightweight, fast API server with Cloudflare integration.
-                  </p>
-                </q-card-section>
-              </q-card>
-            </div>
-          </div>
-        </section>
-      </q-page>
-    </q-page-container>
+      <!-- Features Section -->
+      <section
+        class="w-full max-w-6xl px-4 py-8"
+        aria-labelledby="features-heading"
+      >
+        <h2
+          id="features-heading"
+          class="text-3xl font-bold text-center mb-8 text-gray-900"
+        >
+          Key Features
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          role="list"
+        >
+          <Card class="h-full p-4" role="listitem">
+            <template #title>
+              <h3 class="text-xl font-semibold">Nuxt 4</h3>
+            </template>
+            <template #content>
+              <p class="text-gray-600 leading-relaxed">
+                Modern Vue.js framework with SSR and SSG support.
+              </p>
+            </template>
+          </Card>
+          <Card class="h-full p-4" role="listitem">
+            <template #title>
+              <h3 class="text-xl font-semibold">PrimeVue UI</h3>
+            </template>
+            <template #content>
+              <p class="text-gray-600 leading-relaxed">
+                Beautiful, responsive components for rapid development.
+              </p>
+            </template>
+          </Card>
+          <Card class="h-full p-4" role="listitem">
+            <template #title>
+              <h3 class="text-xl font-semibold">Hono Backend</h3>
+            </template>
+            <template #content>
+              <p class="text-gray-600 leading-relaxed">
+                Lightweight, fast API server with Cloudflare integration.
+              </p>
+            </template>
+          </Card>
+        </div>
+      </section>
+    </main>
 
-    <!-- Footer -->
-    <q-footer
-      class="bg-grey-8 text-white text-center q-pa-md"
+    <!-- Footer with Secondary Color -->
+    <footer
+      class="bg-secondary bg-slate-600 text-white text-center py-6 mt-auto border-t border-secondary-800"
       role="contentinfo"
     >
-      <div>Built with ❤️ using Nuxt, Quasar, and Hono</div>
-    </q-footer>
-  </q-layout>
+      <div>Built with ❤️ using Nuxt, PrimeVue, and Hono</div>
+    </footer>
+  </div>
 </template>
-
-<style scoped>
-/* Accessibility styles */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: #000;
-  color: #fff;
-  padding: 8px;
-  text-decoration: none;
-  z-index: 100;
-}
-
-.skip-link:focus {
-  top: 6px;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-</style>

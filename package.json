@@ -18,18 +18,22 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "10.2.0",
-    "@quasar/extras": "1.17.0",
+    "@primeuix/themes": "1.2.5",
+    "@primevue/nuxt-module": "4.4.1",
     "hono": "4.10.4",
     "inversify": "7.10.4",
     "nuxt": "4.2.1",
-    "nuxt-quasar-ui": "2.1.13",
-    "quasar": "2.18.5",
+    "primeflex": "4.0.0",
+    "primeicons": "7.0.0",
+    "primevue": "4.4.1",
     "reflect-metadata": "0.2.2",
+    "tailwindcss-primeui": "0.6.1",
     "vue": "3.5.24",
     "vue-router": "4.6.3"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.10.0",
+    "@tailwindcss/vite": "4.1.17",
     "@types/node": "24.10.0",
     "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
@@ -37,6 +41,7 @@
     "nitro-cloudflare-dev": "0.2.2",
     "nitropack": "2.12.9",
     "prettier": "3.6.2",
+    "tailwindcss": "4.1.17",
     "typescript": "5.9.3",
     "wrangler": "4.46.0"
   }

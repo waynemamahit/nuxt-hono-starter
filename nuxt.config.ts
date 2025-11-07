@@ -1,4 +1,6 @@
 import type { Nitro } from 'nitropack';
+import Aura from '@primeuix/themes/aura';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -6,9 +8,10 @@ export default defineNuxtConfig({
     'nitro-cloudflare-dev',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
-    'nuxt-quasar-ui',
+    '@primevue/nuxt-module',
   ],
   devtools: { enabled: true },
+  css: ['./app/assets/css/main.css'],
 
   typescript: {
     tsConfig: {
@@ -69,5 +72,20 @@ export default defineNuxtConfig({
     baseUrl: '/',
     locales: [{ code: 'en', language: 'en-US' }],
     defaultLocale: 'en',
+  },
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  primevue: {
+    options: {
+      ripple: true,
+      theme: {
+        preset: Aura,
+        options: {
+          darkModeSelector: '.dark',
+        },
+      },
+    },
   },
 });
