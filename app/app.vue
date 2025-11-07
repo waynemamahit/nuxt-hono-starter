@@ -17,52 +17,58 @@ useHead({
 </script>
 
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <v-app>
+    <v-app-bar app color="primary" dark role="banner">
+      <v-toolbar-title aria-label="Nuxt-Hono Starter Homepage"
+        >Nuxt-Hono Starter</v-toolbar-title
+      >
+      <v-spacer />
+      <v-btn
+        variant="text"
+        size="small"
+        rounded
+        icon="mdi-menu"
+        aria-label="Open navigation menu"
+      />
+    </v-app-bar>
 
-    <q-header elevated class="bg-primary text-white" role="banner">
-      <q-toolbar>
-        <q-toolbar-title aria-label="Nuxt-Hono Starter Homepage"
-          >Nuxt-Hono Starter</q-toolbar-title
-        >
-        <q-space />
-        <q-btn flat dense round icon="menu" aria-label="Open navigation menu" />
-      </q-toolbar>
-    </q-header>
-
-    <q-page-container>
-      <q-page
+    <v-main>
+      <v-container
         id="main-content"
-        class="flex flex-center column q-gutter-md"
+        fluid
+        class="d-flex flex-column align-center"
         role="main"
       >
         <!-- Hero Section -->
-        <section class="text-center q-pa-lg" aria-labelledby="hero-heading">
-          <h1 id="hero-heading" class="text-h3 text-weight-bold q-mb-md">
+        <section class="text-center pa-4" aria-labelledby="hero-heading">
+          <h1 id="hero-heading" class="text-h3 font-weight-bold mb-4">
             Welcome to Nuxt-Hono Starter
           </h1>
           <p
-            class="text-h6 text-grey-7 q-mb-xl"
+            class="text-h6 text-grey-darken-2 mb-12"
             aria-describedby="hero-description"
           >
             A powerful starter template combining Nuxt 4, Quasar UI, and Hono
             for building modern web applications.
           </p>
-          <div class="q-gutter-sm">
-            <q-btn
+          <v-row dense justify="center" gap="2">
+            <v-btn
               color="primary"
-              label="Get Started"
-              size="lg"
+              size="x-large"
               aria-describedby="get-started-desc"
-            />
-            <q-btn
-              color="blue-grey-10"
-              label="Learn More"
-              size="lg"
+            >
+              Get Started
+            </v-btn>
+            <v-btn
+              color="blue-grey-darken-4"
+              size="x-large"
               aria-describedby="learn-more-desc"
-            />
-          </div>
+            >
+              Learn More
+            </v-btn>
+          </v-row>
           <!-- Hidden descriptions for screen readers -->
           <div id="get-started-desc" class="sr-only">
             Start building your application with this starter template
@@ -73,54 +79,55 @@ useHead({
         </section>
 
         <!-- Features Section -->
-        <section class="q-pa-lg" aria-labelledby="features-heading">
-          <h2 id="features-heading" class="text-h4 text-center q-mb-lg">
+        <section class="pa-4" aria-labelledby="features-heading">
+          <h2 id="features-heading" class="text-h4 text-center mb-6">
             Key Features
           </h2>
-          <div class="row justify-center q-gutter-md" role="list">
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
+          <v-row justify="center" spacing="4" role="list">
+            <v-col cols="12" sm="6" md="4" role="listitem">
+              <v-card height="100%">
+                <v-card-text>
                   <h3 class="text-h6">Nuxt 4</h3>
-                  <p class="text-subtitle2">
+                  <p class="text-subtitle-2">
                     Modern Vue.js framework with SSR and SSG support.
                   </p>
-                </q-card-section>
-              </q-card>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
-                  <h3 class="text-h6">Quasar UI</h3>
-                  <p class="text-subtitle2">
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="12" sm="6" md="4" role="listitem">
+              <v-card height="100%">
+                <v-card-text>
+                  <h3 class="text-h6">Vuetify UI</h3>
+                  <p class="text-subtitle-2">
                     Beautiful, responsive components for rapid development.
                   </p>
-                </q-card-section>
-              </q-card>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4" role="listitem">
-              <q-card class="full-height">
-                <q-card-section>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="12" sm="6" md="4" role="listitem">
+              <v-card height="100%">
+                <v-card-text>
                   <h3 class="text-h6">Hono Backend</h3>
-                  <p class="text-subtitle2">
+                  <p class="text-subtitle-2">
                     Lightweight, fast API server with Cloudflare integration.
                   </p>
-                </q-card-section>
-              </q-card>
-            </div>
-          </div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-row>
         </section>
-      </q-page>
-    </q-page-container>
+      </v-container>
+    </v-main>
 
     <!-- Footer -->
-    <q-footer
-      class="bg-grey-8 text-white text-center q-pa-md"
+    <v-footer
+      app
+      class="bg-grey-darken-4 text-white text-center pa-3"
       role="contentinfo"
     >
       <div>Built with ❤️ using Nuxt, Quasar, and Hono</div>
-    </q-footer>
-  </q-layout>
+    </v-footer>
+  </v-app>
 </template>
 
 <style scoped>

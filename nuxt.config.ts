@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     'nitro-cloudflare-dev',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
-    'nuxt-quasar-ui',
+    'vuetify-nuxt-module',
   ],
   devtools: { enabled: true },
 
@@ -16,6 +16,15 @@ export default defineNuxtConfig({
         experimentalDecorators: true,
         emitDecoratorMetadata: true,
       },
+    },
+  },
+
+  vuetify: {
+    moduleOptions: {
+      /* module specific options */
+    },
+    vuetifyOptions: {
+      /* vuetify options */
     },
   },
 
