@@ -16,6 +16,12 @@
       "vars": {
         "DEPLOYMENT_ENVIRONMENT": "staging",
       },
+      // For more information on Cron Triggers, see https://developers.cloudflare.com/workers/configuration/cron-triggers/
+      "triggers": {
+        "crons": [
+          "* * * * *"
+        ]
+      },
       // For more information on KV, see https://developers.cloudflare.com/kv/
       "kv_namespaces": [
         {
@@ -71,6 +77,12 @@
       "name": "nuxt-hono-starter-production",
       "vars": {
         "DEPLOYMENT_ENVIRONMENT": "production",
+      },
+      // For more information on Cron Triggers, see https://developers.cloudflare.com/workers/configuration/cron-triggers/
+      "triggers": {
+        "crons": [
+          "* * * * *"
+        ]
       },
       // For more information on KV, see https://developers.cloudflare.com/kv/
       "kv_namespaces": [
