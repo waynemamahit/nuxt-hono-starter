@@ -102,7 +102,17 @@ This is the only place you need to put these IDs. You do not need to edit `wrang
 
 ## Part 4: Running the Project Locally
 
-To run the project on your local machine, you need to provide your **staging** resource IDs.
+To run the project on your local machine, you need a local PostgreSQL database and your **staging** resource IDs.
+
+### 1. Start the Local Database
+
+This project uses Hyperdrive, which requires a local PostgreSQL database for development. A `docker-compose.yml` file is included for this purpose.
+
+-   **Start the container:** Run `docker-compose up -d` in your terminal.
+
+This will start a PostgreSQL database that is pre-configured to work with the Hyperdrive settings in `wrangler.jsonc`.
+
+### 2. Configure Local Environment Variables
 
 1.  Open the `.dev.vars` file in the root of the project.
 2.  Paste your staging resource IDs into the placeholder values.

@@ -20,6 +20,16 @@ Make sure to install dependencies:
 pnpm install
 ```
 
+### Local Database for Hyperdrive
+
+This project includes a `docker-compose.yml` file to run a local PostgreSQL database for Hyperdrive development. To start the database container, run:
+
+```bash
+docker-compose up -d
+```
+
+The database is configured to match the `localConnectionString` in `wrangler.jsonc`.
+
 This project uses Hono for server-side API routing and Inversify for dependency injection to keep your code modular and testable.
 
 ## Development Server
