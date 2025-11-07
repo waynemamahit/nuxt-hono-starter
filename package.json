@@ -29,6 +29,7 @@
     "vue-router": "4.6.3"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251106.1",
     "@nuxt/eslint": "1.10.0",
     "@types/node": "24.10.0",
     "eslint": "9.39.1",

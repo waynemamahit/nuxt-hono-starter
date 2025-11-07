@@ -19,6 +19,10 @@
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "types": ["reflect-metadata", "./worker-configuration.d.ts"]
+    "types": [
+      "reflect-metadata",
+      "./worker-configuration.d.ts",
+      "@cloudflare/workers-types"
+    ]
   }
 }

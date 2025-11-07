@@ -40,16 +40,14 @@
         },
       ],
       // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
-      // "durable_objects": {
-      //   "bindings": [
-      //     {
-      //       "name": "DURABLE_OBJECTS",
-      //       "class_name": "CounterDurableObjectWrapper",
-      //       "script_name": "${STAGING_DO_SCRIPT_NAME}"
-      //     }
-      //   ]
-      // },
-      // For more information on Workers AI, see https://developers.cloudflare.com/workers-ai/
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "$DurableObject",
+            "class_name": "$DurableObject",
+          },
+        ],
+      },
       "ai": {
         "binding": "AI",
         "remote": true,
@@ -96,16 +94,14 @@
         },
       ],
       // For more information on Durable Objects, see https://developers.cloudflare.com/durable-objects/
-      // "durable_objects": {
-      //   "bindings": [
-      //     {
-      //       "name": "DURABLE_OBJECTS",
-      //       "class_name": "CounterDurableObjectWrapper",
-      //       "script_name": "${PRODUCTION_DO_SCRIPT_NAME}"
-      //     }
-      //   ]
-      // },
-      // For more information on Workers AI, see https://developers.cloudflare.com/workers-ai/
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "$DurableObject",
+            "class_name": "$DurableObject",
+          },
+        ],
+      },
       "ai": {
         "binding": "AI",
         "remote": true,
