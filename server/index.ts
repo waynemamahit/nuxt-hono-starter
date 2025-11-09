@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { Hono } from 'hono';
-import { nitroApp } from 'nitropack/runtime';
+import { nitroApp } from '#internal/nitro';
 import { getLogger } from './container/resolvers';
 import app from './app';
 
