@@ -11,7 +11,7 @@ import {
   ValidationError,
 } from './models/error.model';
 
-const app = new Hono();
+const app = new Hono<{ Bindings: Env }>();
 
 app.use('*', logger());
 

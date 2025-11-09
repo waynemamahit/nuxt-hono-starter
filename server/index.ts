@@ -1,47 +1,46 @@
 import 'reflect-metadata';
 import { Hono } from 'hono';
-import { handle } from 'hono/cloudflare-pages';
-import hono from './app';
+import { nitroApp } from 'nitropack/runtime';
 import { getLogger } from './container/resolvers';
+import app from './app';
 
 // Placeholder for Durable Objects
 // For more information, see https://developers.cloudflare.com/durable-objects/
 export class MyDurableObject {
   state: DurableObjectState;
-
   constructor(state: DurableObjectState) {
     this.state = state;
   }
-
   async fetch(request: Request) {
     const url = new URL(request.url);
-
     if (url.pathname === '/increment') {
       const value = (await this.state.storage.get('value')) || 0;
       await this.state.storage.put('value', (value as number) + 1);
     }
-
     return new Response(JSON.stringify(await this.state.storage.list()));
   }
 }
 
 // Main fetch handler
-const fetch = (
+const fetch = async (
   request: Request,
   env: Env,
   ctx: ExecutionContext,
 ): Promise<Response> => {
-  if (request.headers.get('Upgrade') === 'websocket') {
-    // Handle WebSocket requests if needed
-    return new Response('WebSocket upgrade not implemented', { status: 426 });
+  const url = new URL(request.url);
+  // Route API requests to Hono
+  if (url.pathname.startsWith('/api/')) {
+    return app.fetch(request, env, ctx);
   }
-
-  // Bind environment to Hono
-  (hono.fetch as any) = hono.fetch.bind(hono);
-  return handle(hono, (c) => {
-    c.set('env', env);
-    c.set('ctx', ctx);
-  })(request, env, ctx);
+  // Let Nuxt handle all other requests
+  return nitroApp.localFetch(request, {
+    context: {
+      cloudflare: {
+        env,
+        ctx,
+      },
+    },
+  });
 };
 
 // Scheduled handler for Cron Triggers
@@ -66,7 +65,9 @@ const scheduled: ExportedHandlerScheduledHandler<Env> = async (
 
   try {
     logger.info(
-      `Cron job '${controller.cron}' triggered at ${new Date(controller.scheduledTime).toISOString()}`,
+      `Cron job '${controller.cron}' triggered at ${new Date(
+        controller.scheduledTime,
+      ).toISOString()}`,
     );
     // Add your cron job logic here
   } catch (error) {
@@ -74,7 +75,6 @@ const scheduled: ExportedHandlerScheduledHandler<Env> = async (
     logger.error(`Error in scheduled handler: ${message}`);
   }
 };
-
 export default {
   fetch,
   scheduled,

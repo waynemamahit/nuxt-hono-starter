@@ -39,8 +39,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    preset: 'cloudflare_pages',
-    entry: '~/server/index.ts',
+    preset: 'cloudflare_module',
 
     esbuild: {
       options: {
