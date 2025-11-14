@@ -60,7 +60,7 @@ wrangler hyperdrive create "production-hyperdrive" --connection-string="your-pro
 ### 4. Create Vectorize Indexes
 
 ```bash
-wrangler vectorize create "nuxthono-index-dev" --dimensions=1024 --metric=cosine
+wrangler vectorize create "staging-vector-index" --dimensions=1024 --metric=cosine
 ```
 
 ---
@@ -86,7 +86,7 @@ In the same settings area for your repository, create the following **variables*
 - `STAGING_D1_ID`: The `database_id` from your staging D1 database.
 - `STAGING_HYPERDRIVE_ID`: The ID from your staging Hyperdrive config.
 - `STAGING_VECTORIZE_INDEX_NAME`: The name of your staging Vectorize index (e.g., "counter_index").
-- `STAGING_DO_SCRIPT_NAME`: The name of the worker script for your Durable Object (e.g., "nuxt-hono-starter-dev").
+- `STAGING_DO_SCRIPT_NAME`: The name of the worker script for your Durable Object (e.g., "staging-script-do").
 
 **Production Variables:**
 
@@ -94,7 +94,7 @@ In the same settings area for your repository, create the following **variables*
 - `PRODUCTION_D1_ID`: The `database_id` from your production D1 database.
 - `PRODUCTION_HYPERDRIVE_ID`: The ID from your production Hyperdrive config.
 - `PRODUCTION_VECTORIZE_INDEX_NAME`: The name of your production Vectorize index.
-- `PRODUCTION_DO_SCRIPT_NAME`: The name of the worker script for your Durable Object (e.g., "nuxt-hono-starter-production").
+- `PRODUCTION_DO_SCRIPT_NAME`: The name of the worker script for your Durable Object (e.g., "production-script-do").
 
 This is the only place you need to put these IDs. You do not need to edit `wrangler.jsonc`.
 
@@ -124,7 +124,7 @@ WRANGLER_ENV=staging
 STAGING_KV_ID="a1b2c3d4e5f6..."
 STAGING_D1_ID="b2c3d4e5f6a1..."
 STAGING_HYPERDRIVE_ID="c3d4e5f6a1b2..."
-STAGING_VECTORIZE_INDEX_NAME="nuxthono-index-dev"
+STAGING_VECTORIZE_INDEX_NAME="staging-vector-index"
 STAGING_DO_SCRIPT_NAME="nuxt-hono-starter-do-dev"
 ```
 
