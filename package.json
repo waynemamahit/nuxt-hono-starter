@@ -17,9 +17,9 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "10.2.0",
+    "@nuxtjs/i18n": "10.2.1",
     "@quasar/extras": "1.17.0",
-    "hono": "4.10.5",
+    "hono": "4.10.6",
     "inversify": "7.10.4",
     "nuxt": "4.2.1",
     "nuxt-quasar-ui": "2.1.13",
@@ -29,7 +29,7 @@
     "vue-router": "4.6.3"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20251113.0",
+    "@cloudflare/workers-types": "^4.20251119.0",
     "@nuxt/eslint": "1.10.0",
     "@types/node": "24.10.1",
     "eslint": "9.39.1",
@@ -39,6 +39,6 @@
     "nitropack": "2.12.9",
     "prettier": "3.6.2",
     "typescript": "5.9.3",
-    "wrangler": "4.48.0"
+    "wrangler": "4.49.0"
   }
 }

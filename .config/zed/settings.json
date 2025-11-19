@@ -1,0 +1,10 @@
+{
+  "context_servers": {
+    "nuxt": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["mcp-remote", "https://nuxt.com/mcp"],
+      "env": {}
+    }
+  }
+}
